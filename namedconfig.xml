@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns       = "http://www.w3.org/ns/widgets"
-        xmlns:gap   = "http://phonegap.com/ns/2.9"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "org.lafayettecc.lcc_online"
         versionCode = "1"
         version     = "0.1.0">
@@ -15,12 +15,12 @@
         Lafayette Community Church
     </author>
 
-    <feature name="http://api.phonegap.com/2.9/camera"/>
-    <feature name="http://api.phonegap.com/2.9/contacts"/>
-    <feature name="http://api.phonegap.com/2.9/file"/>
-    <feature name="http://api.phonegap.com/2.9/geolocation"/>
-    <feature name="http://api.phonegap.com/2.9/media"/>
-    <feature name="http://api.phonegap.com/2.9/network"/>
-    <feature name="http://api.phonegap.com/2.9/notification"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>
 
 </widget>
