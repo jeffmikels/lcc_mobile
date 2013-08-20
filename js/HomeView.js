@@ -27,13 +27,13 @@ var HomeView = function(store)
 	this.showBlogList = function(data)
 	{
 		$('.blog-list').html(HomeView.liTemplate(data.posts));
-		if (self.iscroll) {
-			console.log('Refresh iScroll');
-			self.iscroll.refresh();
-		} else {
-			console.log('New iScroll');
-			self.iscroll = new iScroll($('.scroll', self.el)[0], {hScrollbar: false, vScrollbar: false });
-		}
+// 		if (self.iscroll) {
+// 			console.log('Refresh iScroll');
+// 			self.iscroll.refresh();
+// 		} else {
+// 			console.log('New iScroll');
+// 			self.iscroll = new iScroll($('.scroll', self.el)[0], {hScrollbar: false, vScrollbar: true });
+// 		}
 	}
 
 	this.initialize = function()
