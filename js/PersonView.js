@@ -1,4 +1,4 @@
-var EmployeeView = function(employee)
+var PersonView = function(person)
 {
 	this.initialize = function()
 	{
@@ -67,11 +67,11 @@ var EmployeeView = function(employee)
 
 	this.render = function()
 	{
-		this.el.html(EmployeeView.template(employee));
+		this.el.html(PersonView.template(person));
 		return this;
 	}
 
 	this.initialize();
 }
 
-EmployeeView.template = Handlebars.compile($("#employee-tpl").html());
+PersonView.template = Handlebars.compile($("#employee-tpl").html());

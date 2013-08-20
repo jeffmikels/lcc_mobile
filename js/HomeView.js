@@ -18,15 +18,34 @@ var HomeView = function(store)
 				});
 		};
 
+	this.getBlogPosts = function()
+	{
+		url = 'http://lafayettecc.org/news/?json';
+		$.getJSON(url, this.showBlogList);
+	}
+
+	this.showBlogList = function(data)
+	{
+		$('.blog-list').html(HomeView.liTemplate(data.posts));
+		if (self.iscroll) {
+			console.log('Refresh iScroll');
+			self.iscroll.refresh();
+		} else {
+			console.log('New iScroll');
+			self.iscroll = new iScroll($('.scroll', self.el)[0], {hScrollbar: false, vScrollbar: false });
+		}
+	}
+
 	this.initialize = function()
 	{
 		// Define a div wrapper for the view. The div wrapper is used to attach events.
 		this.el = $('<div/>');
-		this.el.on('keyup', '.search-key', this.findByName);
+		//this.el.on('keyup', '.search-key', this.findByName);
+		this.getBlogPosts();
 	};
 
 	this.initialize();
 }
 
 HomeView.template = Handlebars.compile($("#home-tpl").html());
-HomeView.liTemplate = Handlebars.compile($("#employee-li-tpl").html());
+HomeView.liTemplate = Handlebars.compile($("#blog-li-tpl").html());

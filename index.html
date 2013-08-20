@@ -6,9 +6,32 @@
 <body>
 <script id="home-tpl" type="text/x-handlebars-template">
 		<!-- HOME TEMPLATE -->
-    <div class='header'><h1>Home</h1></div>
-    <div class='search-bar'><input class='search-key' type="search"/></div>
-    <div class="scroll"><ul class='employee-list'></ul></div>
+    <div class='header'><h1>LCC Blog Entries</h1></div>
+    <!--<div class='search-bar'><input class='search-key' type="search"/></div>-->
+    <div class="scroll"><ul class='blog-list'></ul></div>
+</script>
+<script id="blog-li-tpl" type="text/x-handlebars-template">
+		<!-- BLOG ENTRY TEMPLATE -->
+    {{#.}}
+    <li>
+			<a href="#blog/{{this.id}}">{{this.title}}
+				<div class="meta"><span class="author">{{this.author}}</span></div><div class="excerpt">{{this.excerpt}}</div>
+			</a>
+    </li>
+    {{/.}}
+</script>
+<script id="blog-tpl" type="text/x-handlebars-template">
+		<!-- BLOG VIEW TEMPLATE -->
+    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
+    <div class='post'>
+        <h1>{{title}}</h1>
+        <div class="meta">{{author}}</div>
+        {{#if thumbnail}}
+        <div class="thumbnail"><img src="{{thumbnail}}" /></div>
+        {{/if}}
+        <div class="content">{{{filtered}}}</div>
+        <a class="button" href="{{url}}">View in Browser</a>
+    </div>
 </script>
 <script id="employee-li-tpl" type="text/x-handlebars-template">
 		<!-- EMPLOYEE LIST TEMPLATE -->
@@ -41,7 +64,8 @@
 <script src="lib/iscroll.js"></script>
 <script src="js/storage/ls-store.js"></script>
 <script src="js/HomeView.js"></script>
-<script src="js/EmployeeView.js"></script>
+<script src="js/PersonView.js"></script>
+<script src="js/BlogView.js"></script>
 <script src="js/main.js"></script>
 
 </body>

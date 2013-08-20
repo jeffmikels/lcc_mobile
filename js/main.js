@@ -73,6 +73,7 @@ var app = {
 		route: function() {
 				var self = this;
 				var hash = window.location.hash;
+				console.log(hash)
 				if (!hash) {
 						if (this.homePage) {
 								this.slidePage(this.homePage);
@@ -82,19 +83,36 @@ var app = {
 						}
 						return;
 				}
-				var match = hash.match(this.detailsURL);
+				// look for a person URL
+				var match = hash.match(this.personURL);
 				if (match) {
-						this.store.findById(Number(match[1]), function(employee) {
-								self.slidePage(new EmployeeView(employee).render());
+						console.log('found person')
+						this.store.findById(Number(match[1]), function(person) {
+								self.slidePage(new PersonView(person).render());
 						});
 				}
+				// look for a blog URL
+				var match = hash.match(this.blogURL);
+				if (match) {
+						id = match[1];
+						// grab blog entry
+						url = 'http://lafayettecc.org/news/?p=' + id + '&json';
+						console.log('attempting to retrieve ' + url);
+						$.getJSON(url, function(data)
+						{
+							console.log(data);
+							self.slidePage(new BlogView(data.posts[0]).render());
+						});
+				}
+
 		},
 
 		initialize: function() {
 			var self = this;
-			this.detailsURL = /^#employees\/(\d{1,})/;
+			this.personURL = /^#person\/(\d{1,})/;
+			this.blogURL = /^#blog\/(\d{1,})/;
 			this.registerEvents();
-			//this.store = new MemoryStore(function()
+
 			this.store = new LocalStorageStore(function()
 			{
 				//self.showAlert('Store Initialized', 'Info');

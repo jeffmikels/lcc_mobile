@@ -8,13 +8,14 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #fff;
+    background-color: #f0f0ff;
     overflow: hidden;
     position: relative;
 }
+body{background-image:url(img/logo-ball.png);background-repeat:no-repeat;background-position:-250px 0px;background-color:#336;}
 
 .header {
-    background: #666;
+    background: #335;
     -webkit-background-size: 1px 44px;
     -moz-background-size: 1px 44px;
     -ms-background-size: 1px 44px;
@@ -228,3 +229,8 @@ h2 {
     -webkit-transition-duration: .375s;
     -o-transition-duration: .375s;
 }
+
+
+.post {margin:30px;border:1px solid #eee;border-radius: 16px;padding:20px;background:white;}
+.meta {border-bottom:1px solid black;margin-bottom:10px;font-size:.8em;text-transform:uppercase;color:#779;font-weight:bold;letter-spacing:.2em;}
+.thumbnail {float:right;background:white;padding:8px;border-radius:6px;box-shadow:2px 2px 5px #999;}
